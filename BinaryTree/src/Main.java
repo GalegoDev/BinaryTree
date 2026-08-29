@@ -1,5 +1,6 @@
 
 
+
 import java.util.HashMap;
 public class Main {
     static HashMap<String, Node> campus = new HashMap<>();
@@ -13,3 +14,4 @@ public class Main {
         campus.put("Santo Amaro", null);
         campus.put("Villa Lobos", null);
     }}
+

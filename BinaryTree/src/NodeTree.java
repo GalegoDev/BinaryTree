@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class NodeTree {
 
 
@@ -47,6 +50,21 @@ public class NodeTree {
             list(currentName.left);
             System.out.println(currentName.StundNam);
             list(currentName.right);
+        }
+
+        static List<String> listAsCollection(Node currentName) {
+            List<String> students = new ArrayList<>();
+            collectInOrder(currentName, students);
+            return students;
+        }
+
+        private static void collectInOrder(Node currentName, List<String> students) {
+            if (currentName == null) {
+                return;
+            }
+            collectInOrder(currentName.left, students);
+            students.add(currentName.StundNam);
+            collectInOrder(currentName.right, students);
         }
     }
 

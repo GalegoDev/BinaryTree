@@ -55,7 +55,7 @@ public class MainWindow extends JFrame {
     }
 
     public MainWindow() {
-        setTitle("FIAP - Cadastro de Alunos");
+        setTitle("UNICSUL - Cadastro de Alunos");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setMinimumSize(new Dimension(640, 480));
         setLocationRelativeTo(null);

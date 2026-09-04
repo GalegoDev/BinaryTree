@@ -9,7 +9,7 @@ public class NodeTree {
                 return new Node(name);
             }
 
-            int compare = name.compareTo(currentName.StundNam);
+            int compare = name.compareToIgnoreCase(currentName.StundNam);
 
             if (compare < 0) {
                 currentName.left = insert(currentName.left, name);
@@ -28,7 +28,7 @@ public class NodeTree {
                     return false;
                 }
 
-                int compare = name.compareTo(currentName.StundNam);
+                int compare = name.compareToIgnoreCase(currentName.StundNam);
 
                 if (compare == 0) {
 

@@ -44,7 +44,18 @@ public class Main {
             return;
         }NodeTree.list(root);}
 
+    // GALEGO MEXEU AQUI:
+    static boolean deleteStudent(String name) {
+        for (String nomeCampus : campus.keySet()) {
+            Node root = campus.get(nomeCampus);
+            boolean found = NodeTree.search(root, name);
 
-
+            if (found) {
+                Node novaRaiz = NodeTree.delete(root, name);
+                campus.put(nomeCampus, novaRaiz);
+                return true;
+            }
+        }
+        return false;
     }
-
+}

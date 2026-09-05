@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class NodeTree {
 
     public static Node insert(Node currentName, String name) {
@@ -5,7 +8,7 @@ public class NodeTree {
             return new Node(name);
         }
 
-        int compare = name.compareTo(currentName.StundNam);
+            int compare = name.compareTo(currentName.StundNam);
 
         if (compare < 0) {
             currentName.left = insert(currentName.left, name);
@@ -21,63 +24,31 @@ public class NodeTree {
             return false;
         }
 
-        int compare = name.compareTo(currentName.StundNam);
+                int compare = name.compareTo(currentName.StundNam);
 
-        if (compare == 0) {
-            return true;
-        } else if (compare < 0) {
-            return search(currentName.left, name);
-        } else {
-            return search(currentName.right, name);
-        }
-    }
+                if (compare == 0) {
 
-    static void list(Node currentName) {
-        if (currentName == null) {
-            return;
-        }
-        list(currentName.left);
-        System.out.println(currentName.StundNam);
-        list(currentName.right);
-    }
+                    return true;
 
-    // GALEGO MEXEU AQUI:
-    public static Node delete(Node root, String name) {
-        if (root == null) {
-            return root;
-        }
+                }       else if (compare<0) {
+                    return search(currentName.left,name);
 
-        int compare = name.compareTo(root.StundNam);
+                }
+                else{
+                    return search(currentName.right,name);
 
-        if (compare < 0) {
-            root.left = delete(root.left, name);
-        } else if (compare > 0) {
-            root.right = delete(root.right, name);
-        } else {
-            // Caso 1 e 2: 0 filhos ou apenas 1 filho
-            if (root.left == null) {
-                return root.right;
-            } else if (root.right == null) {
-                return root.left;
+
+            }}
+        static void list(Node currentName){
+            if (currentName == null){
+                return ;
             }
-
-            // Caso 3: O nó tem dois filhos
-            root.StundNam = minValue(root.right);
-            root.right = delete(root.right, root.StundNam);
+            list(currentName.left);
+            System.out.println(currentName.StundNam);
+            list(currentName.right);
         }
-
-        return root;
     }
 
-    // Função auxiliar para achar o menor valor 
-    static String minValue(Node root) {
-        String minv = root.StundNam;
-        while (root.left != null) {
-            minv = root.left.StundNam;
-            root = root.left;
-        }
-        return minv;
-    }
-}
+
 
 

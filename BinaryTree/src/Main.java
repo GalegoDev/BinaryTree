@@ -55,11 +55,21 @@ public class Main {
 
     static List<String> getStudentsByCampus(String campusName) {
         Node root = campus.get(campusName);
+        List<String> students = new ArrayList<>();
+        
+        // Coleta os alunos da árvore (ajustado para a nova estrutura do grupo)
+        collectStudents(root, students);
+        return students;
+    }
 
-        if (root == null) {
-            System.out.println("Não há aluno cadastrado neste campus.");
+    private static void collectStudents(Node currentName, List<String> list) {
+        if (currentName == null) {
             return;
-        }NodeTree.list(root);}
+        }
+        collectStudents(currentName.left, list);
+        list.add(currentName.StundNam);
+        collectStudents(currentName.right, list);
+    }
 
     // GALEGO MEXEU AQUI:
     static boolean deleteStudent(String name) {

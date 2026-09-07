@@ -30,7 +30,7 @@ public class NodeTree {
 
                     return true;
 
-                }       else if (compare<0) {
+                }      else if (compare<0) {
                     return search(currentName.left,name);
 
                 }
@@ -47,8 +47,41 @@ public class NodeTree {
             System.out.println(currentName.StundNam);
             list(currentName.right);
         }
+
+    // GALEGO MEXEU AQUI:
+    public static Node delete(Node root, String name) {
+        if (root == null) {
+            return root;
+        }
+
+        int compare = name.compareTo(root.StundNam);
+
+        if (compare < 0) {
+            root.left = delete(root.left, name);
+        } else if (compare > 0) {
+            root.right = delete(root.right, name);
+        } else {
+            // Caso 1 e 2: Sem filhos ou com apenas 1 filho
+            if (root.left == null) {
+                return root.right;
+            } else if (root.right == null) {
+                return root.left;
+            }
+
+            // Caso 3: O nó tem dois filhos
+            root.StundNam = minValue(root.right);
+            root.right = delete(root.right, root.StundNam);
+        }
+
+        return root;
     }
-
-
-
-
+    
+    static String minValue(Node root) {
+        String minv = root.StundNam;
+        while (root.left != null) {
+            minv = root.left.StundNam;
+            root = root.left;
+        }
+        return minv;
+    }
+}
